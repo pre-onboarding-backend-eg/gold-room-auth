@@ -16,7 +16,19 @@ public enum ErrorCode {
     // 요청 본문 형식 오류 추가
     INVALID_REQUEST_BODY(HttpStatus.BAD_REQUEST, "요청 본문의 형식이 올바르지 않습니다."),
     ENTITY_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 엔티티입니다."),
-    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "서비스 이용에 장애가 있습니다.");
+    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "서비스 이용에 장애가 있습니다."),
+
+    // 회원가입
+    INVALID_USER_REQUEST_BODY(HttpStatus.BAD_REQUEST,"회원정보가 전송되지 않았습니다."),
+    BAD_REQUEST_USER_MIN_NAME_LENGTH(HttpStatus.BAD_REQUEST,"username은 8자리 이상으로 설정해주세요!"),
+    BAD_REQUEST_USER_NAME_FORMAT(HttpStatus.BAD_REQUEST,"username은 영어소문자와 숫자로만 구성되어야 합니다."),
+    BAD_REQUEST_SIGN_UP_DIG_FORMAT(HttpStatus.BAD_REQUEST,"숫자로만 구성되어 있습니다."),
+    BAD_REQUEST_USER_MIN_PASSWORD_LENGTH(HttpStatus.BAD_REQUEST,"password는 10자리 이상으로 설정해주세요!"),
+    BAD_REQUEST_USER_PASSWORD_FORMAT(HttpStatus.BAD_REQUEST,"password는 영어, 숫자, 특수문자 중 최소 2가지를 포함해야 합니다."),
+    BAD_REQUEST_USER_PASSWORD_SEQ(HttpStatus.BAD_REQUEST,"3회 이상 연속되는 숫자, 문자열을 포함하고 있습니다."),
+    BAD_REQUEST_USER_PASSWORD_INFO(HttpStatus.BAD_REQUEST,"개인정보가 포함된 비밀번호입니다."),
+    BAD_REQUEST_USER_CELLPHONE_FORMAT(HttpStatus.BAD_REQUEST,"휴대전화 형식이 올바르지 않습니다."),
+    PRESENT_USER_NAME_CONFLICT(HttpStatus.CONFLICT,"이미 존재하는 username입니다.");
 
     //공통
     private final HttpStatus status;
