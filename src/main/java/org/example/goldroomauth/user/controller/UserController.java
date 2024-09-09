@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.example.goldroomauth.user.dto.SignInRequest;
+import org.example.goldroomauth.user.dto.SignInResponse;
 import org.example.goldroomauth.user.dto.SignUpRequest;
 import org.example.goldroomauth.user.dto.SignUpResponse;
 import org.example.goldroomauth.user.service.UserService;
@@ -35,5 +37,20 @@ public class UserController {
     public ResponseEntity<SignUpResponse> signUp(@Valid @RequestBody SignUpRequest signUpRequest) {
         SignUpResponse signUpResponse = userService.signUp(signUpRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(signUpResponse);
+    }
+
+    // 2. 로그인
+    @PostMapping("/sign-in")
+    @Operation(
+            summary = "로그인",
+            description = "로그인을 진행합니다."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "로그인에 성공하였습니다."
+    )
+    public ResponseEntity<SignInResponse> signIn(@Valid @RequestBody SignInRequest signInRequest) {
+        SignInResponse signInResponse = userService.signIn(signInRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(signInResponse);
     }
 }
