@@ -51,6 +51,7 @@ public class JwtTokenProvider {
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
             return true;
         } catch (Exception e){
+            log.error("토큰 유효성 검사 오류: ",e);
             return false;
         }
     }
