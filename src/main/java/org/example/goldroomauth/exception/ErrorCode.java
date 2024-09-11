@@ -34,7 +34,12 @@ public enum ErrorCode {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND,"존재하지 않는 사용자입니다."),
     INVALID_PASSWORD(HttpStatus.BAD_REQUEST,"올바르지 않은 비밀번호입니다."),
     REFRESH_TOKEN_EXPIRATION(HttpStatus.UNAUTHORIZED,"인증정보가 만료됐습니다. 다시 로그인해주세요."),
-    INVALID_TOKEN(HttpStatus.BAD_REQUEST,"유효하지 않은 리프레시 토큰입니다.");
+    INVALID_TOKEN(HttpStatus.BAD_REQUEST,"유효하지 않은 리프레시 토큰입니다."),
+
+    // 회원정보
+    GOLD_ROOM_NOT_FOUND(HttpStatus.NOT_FOUND,"금은방 정보가 없습니다."),
+    INVALID_GOLD_ROOM_REQUEST_BODY(HttpStatus.BAD_REQUEST, "금은방 정보 추가 요청 본문의 형식이 올바르지 않습니다.");
+
     //공통
     private final HttpStatus status;
     private final String message;
